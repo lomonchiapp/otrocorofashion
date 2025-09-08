@@ -1,0 +1,219 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Colores personalizados para Otro Coro Fashion - Rojo y Negro con base blanca */
+    --background: 0 0% 100%; /* Blanco */
+    --foreground: 0 0% 7%; /* Negro casi puro */
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 7%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 7%;
+    --primary: 0 84% 50%; /* Rojo del logo FASHION */
+    --primary-foreground: 0 0% 98%;
+    --secondary: 0 0% 0%; /* Negro */
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 45%;
+    --accent: 0 0% 96%;
+    --accent-foreground: 0 0% 9%;
+    --destructive: 0 84% 50%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
+    --ring: 0 84% 50%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    /* Tema oscuro */
+    --background: 0 0% 7%; /* Negro casi puro */
+    --foreground: 0 0% 98%; /* Blanco casi puro */
+    --card: 0 0% 9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 84% 55%; /* Rojo más brillante para contraste */
+    --primary-foreground: 0 0% 7%;
+    --secondary: 0 0% 14%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 0% 14%;
+    --muted-foreground: 0 0% 65%;
+    --accent: 0 0% 14%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 84% 55%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 20%;
+    --input: 0 0% 14%;
+    --ring: 0 84% 55%;
+  }
+}
+
+@layer base {
+  * {
+    border-color: hsl(var(--border));
+  }
+  body {
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+@layer components {
+  /* Professional animations and transitions */
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-in-out;
+  }
+  
+  .animate-slide-up {
+    animation: slideUp 0.6s ease-out;
+  }
+  
+  .animate-scale-in {
+    animation: scaleIn 0.3s ease-out;
+  }
+  
+  .animate-bounce-in {
+    animation: bounceIn 0.6s ease-out;
+  }
+
+  .animate-in {
+    animation: slideInFromTop 0.2s ease-out;
+  }
+
+  .slide-in-from-top-2 {
+    animation: slideInFromTop 0.2s ease-out;
+  }
+  
+  .hover-lift {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .hover-lift:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  }
+  
+  .hover-glow {
+    transition: all 0.3s ease;
+  }
+  
+  .hover-glow:hover {
+    box-shadow: 0 0 20px hsla(var(--primary), 0.5);
+  }
+  
+  .smooth-transition {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  /* Loading animations */
+  .pulse-slow {
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+  
+  .shimmer {
+    background: linear-gradient(90deg, 
+      hsl(var(--muted)) 25%, 
+      hsl(var(--background)) 50%, 
+      hsl(var(--muted)) 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes bounceIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  70% {
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes slow-zoom {
+  0% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1.2);
+  }
+}
+
+@keyframes glow {
+  0%, 100% {
+    text-shadow: 0 0 5px rgba(220, 38, 38, 0.5);
+  }
+  50% {
+    text-shadow: 0 0 20px rgba(220, 38, 38, 0.8), 0 0 30px rgba(220, 38, 38, 0.6);
+  }
+}
+
+@keyframes slideInFromTop {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-slow-zoom {
+  animation: slow-zoom 20s ease-in-out infinite alternate;
+}
+
+.animate-glow {
+  animation: glow 2s ease-in-out infinite;
+}
