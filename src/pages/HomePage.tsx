@@ -1,9 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Truck, Shield, RefreshCw, Headphones } from 'lucide-react';
+import { ArrowRight, Truck, Shield, RefreshCw, Headphones, Sparkles } from 'lucide-react';
 import { Button } from '../components/ui/button';
 import { Card, CardContent } from '../components/ui/card';
 import ProductCard from '../components/ProductCard';
+import DynamicHeroText from '../components/DynamicHeroText';
+import AdvancedCarousel from '../components/AdvancedCarousel';
 import { getFeaturedProducts, mockCategories } from '../data/mockData';
 
 const HomePage: React.FC = () => {
@@ -11,96 +13,108 @@ const HomePage: React.FC = () => {
 
   return (
     <div className="space-y-16">
-      {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden animate-fade-in">
-        {/* Background Image with Parallax Effect */}
-        <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat transform scale-110 animate-slow-zoom"
-          style={{
-            backgroundImage: 'url(https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1920&q=80)'
-          }}
-        ></div>
-        
-        {/* Gradient Overlays */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/40 to-black/60"></div>
-        <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
-        
-        {/* Animated Elements */}
-        <div className="absolute top-20 left-10 w-2 h-2 bg-primary rounded-full animate-ping" style={{ animationDelay: '1s' }}></div>
-        <div className="absolute top-40 right-20 w-3 h-3 bg-white/30 rounded-full animate-pulse" style={{ animationDelay: '2s' }}></div>
-        <div className="absolute bottom-40 left-20 w-1 h-1 bg-primary/60 rounded-full animate-ping" style={{ animationDelay: '3s' }}></div>
-        
-        {/* Main Content */}
-        <div className="relative z-10 text-center text-white px-4 max-w-6xl mx-auto">
-          <div className="animate-slide-up">
-            {/* Brand Logo/Name */}
-            <div className="mb-8">
-              <img 
-                src="/logo-white.png" 
-                alt="Otro Coro Fashion" 
-                className="h-16 md:h-20 mx-auto mb-4 hover-lift animate-bounce-in"
-              />
-              <div className="w-24 h-0.5 bg-gradient-to-r from-transparent via-primary to-transparent mx-auto animate-scale-in" style={{ animationDelay: '0.5s' }}></div>
-            </div>
-            
-            {/* Main Headline */}
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-black mb-6 leading-tight animate-slide-up" style={{ animationDelay: '0.2s' }}>
-              <span className="bg-gradient-to-r from-white via-gray-100 to-white bg-clip-text text-transparent">
-                MODA
-              </span>
-              <br />
-              <span className="bg-gradient-to-r from-primary via-red-500 to-primary bg-clip-text text-transparent animate-glow">
-                DOMINICANA
-              </span>
-            </h1>
-            
-            {/* Subtitle */}
-            <p className="text-xl md:text-2xl lg:text-3xl mb-8 font-light text-gray-200 max-w-4xl mx-auto leading-relaxed animate-fade-in" style={{ animationDelay: '0.4s' }}>
-              Descubre las últimas tendencias con 
-              <span className="text-primary font-semibold"> estilo único </span>
-              y calidad excepcional
-            </p>
-            
-            {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-6 justify-center items-center animate-scale-in" style={{ animationDelay: '0.6s' }}>
-              <Button size="lg" className="bg-primary hover:bg-primary/90 text-white px-8 py-4 text-lg font-semibold hover-glow shadow-2xl transform hover:scale-105 transition-all duration-300">
-                <Link to="/products" className="flex items-center">
-                  Explorar Colección
-                  <ArrowRight className="ml-3 h-6 w-6" />
-                </Link>
-              </Button>
-              <Button size="lg" variant="outline" className="bg-white/10 backdrop-blur-sm border-2 border-white/30 text-white hover:bg-white hover:text-black px-8 py-4 text-lg font-semibold hover-lift transition-all duration-300">
-                <Link to="/sale" className="flex items-center">
-                  Ver Ofertas
-                  <span className="ml-3 text-primary">🔥</span>
-                </Link>
-              </Button>
-            </div>
-            
-            {/* Trust Indicators */}
-            <div className="mt-16 flex flex-col sm:flex-row items-center justify-center gap-8 text-sm text-gray-300 animate-fade-in" style={{ animationDelay: '0.8s' }}>
-              <div className="flex items-center gap-2">
-                <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-                <span>Envío Gratis RD$8,000+</span>
+      {/* Hero Section - Diseño avanzado estilo Shein con carousel 3D */}
+      <section className="relative min-h-screen overflow-hidden bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
+        {/* Fondo con patrones animados */}
+        <div className="absolute inset-0">
+          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-purple-900/20 via-transparent to-transparent"></div>
+          
+          {/* Elementos flotantes decorativos */}
+          <div className="absolute top-20 left-20 w-32 h-32 bg-gradient-to-br from-pink-500/30 to-purple-500/30 rounded-full blur-3xl animate-float"></div>
+          <div className="absolute bottom-32 right-16 w-24 h-24 bg-gradient-to-br from-blue-500/30 to-cyan-500/30 rounded-full blur-2xl animate-float" style={{ animationDelay: '2s' }}></div>
+          <div className="absolute top-1/2 right-1/4 w-16 h-16 bg-gradient-to-br from-yellow-500/30 to-orange-500/30 rounded-full blur-xl animate-float" style={{ animationDelay: '1s' }}></div>
+          
+          {/* Grid pattern */}
+          <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:50px_50px] animate-pulse opacity-20"></div>
+        </div>
+
+        {/* Hero content layout */}
+        <div className="relative z-10 h-screen flex flex-col">
+          {/* Top section - Hero text */}
+          <div className="flex-1 flex items-center justify-center px-4 lg:px-8">
+            <div className="text-center max-w-4xl mx-auto">
+              {/* Badge superior */}
+              <div className="inline-flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-pink-500/20 to-purple-500/20 backdrop-blur-md rounded-full border border-white/30 mb-8 animate-fade-in-up">
+                <Sparkles className="w-5 h-5 text-white animate-spin" style={{ animationDuration: '3s' }} />
+                <span className="text-white/90 font-medium">✨ Nueva Colección Primavera 2024</span>
+                <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
               </div>
-              <div className="hidden sm:block w-px h-4 bg-gray-500"></div>
-              <div className="flex items-center gap-2">
-                <div className="w-2 h-2 bg-blue-500 rounded-full animate-pulse" style={{ animationDelay: '0.5s' }}></div>
-                <span>Pago 100% Seguro</span>
+
+              {/* Título principal */}
+              <h1 className="text-5xl md:text-7xl lg:text-8xl font-black leading-tight mb-6 animate-slide-in-left">
+                <span className="text-white block mb-2">MODA QUE</span>
+                <span className="bg-gradient-to-r from-pink-400 via-purple-400 to-indigo-400 bg-clip-text text-transparent animate-glow">
+                  ENAMORA
+                </span>
+              </h1>
+
+              {/* Subtítulo */}
+              <p className="text-xl md:text-2xl text-white/80 mb-12 leading-relaxed max-w-2xl mx-auto animate-slide-in-right">
+                Descubre las últimas tendencias que marcan la diferencia en República Dominicana
+              </p>
+
+              {/* CTA Buttons */}
+              <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16 animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
+                <Button 
+                  size="lg" 
+                  className="bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 hover:from-pink-600 hover:via-purple-600 hover:to-indigo-600 text-white px-12 py-6 text-xl font-bold shadow-2xl hover:shadow-pink-500/30 transform hover:scale-105 transition-all duration-300 border-0 animate-pulse-glow"
+                >
+                  <Link to="/products" className="flex items-center">
+                    Explorar Colección
+                    <ArrowRight className="ml-3 h-6 w-6" />
+                  </Link>
+                </Button>
+                
+                <Button 
+                  size="lg" 
+                  variant="outline" 
+                  className="bg-white/15 backdrop-blur-md border-2 border-white/40 text-white hover:bg-white hover:text-black px-12 py-6 text-xl font-bold transition-all duration-300 hover:scale-105"
+                >
+                  Ver Ofertas 🔥
+                </Button>
               </div>
-              <div className="hidden sm:block w-px h-4 bg-gray-500"></div>
-              <div className="flex items-center gap-2">
-                <div className="w-2 h-2 bg-purple-500 rounded-full animate-pulse" style={{ animationDelay: '1s' }}></div>
-                <span>Devoluciones 30 Días</span>
+
+              {/* Trust indicators */}
+              <div className="flex flex-wrap justify-center items-center gap-8 text-white/70 animate-fade-in-up" style={{ animationDelay: '0.6s' }}>
+                <div className="flex items-center gap-2">
+                  <div className="w-3 h-3 bg-green-400 rounded-full animate-pulse"></div>
+                  <span className="font-medium">Envío Gratis +RD$8,000</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <div className="w-3 h-3 bg-blue-400 rounded-full animate-pulse" style={{ animationDelay: '0.5s' }}></div>
+                  <span className="font-medium">Pago 100% Seguro</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <div className="w-3 h-3 bg-purple-400 rounded-full animate-pulse" style={{ animationDelay: '1s' }}></div>
+                  <span className="font-medium">30 días devolución</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <div className="w-3 h-3 bg-yellow-400 rounded-full animate-pulse" style={{ animationDelay: '1.5s' }}></div>
+                  <span className="font-medium">+10K clientes felices</span>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-        
-        {/* Scroll Indicator */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-          <div className="w-6 h-10 border-2 border-white/50 rounded-full flex justify-center">
-            <div className="w-1 h-3 bg-white/70 rounded-full mt-2 animate-pulse"></div>
+
+          {/* Bottom section - Advanced Carousel superpuesto */}
+          <div className="absolute bottom-0 left-0 right-0 h-[500px] z-20">
+            <div className="relative h-full">
+              {/* Gradient overlay para superponer el carousel */}
+              <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-transparent to-black/20 z-10"></div>
+              
+              {/* Advanced 3D Carousel */}
+              <div className="h-full">
+                <AdvancedCarousel />
+              </div>
+            </div>
+          </div>
+
+          {/* Indicador de scroll mejorado */}
+          <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce z-30">
+            <div className="w-8 h-12 border-2 border-white/40 rounded-full flex justify-center backdrop-blur-md bg-white/10">
+              <div className="w-1.5 h-4 bg-gradient-to-b from-pink-400 to-purple-500 rounded-full mt-2 animate-pulse shadow-lg"></div>
+            </div>
           </div>
         </div>
       </section>

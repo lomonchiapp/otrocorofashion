@@ -227,8 +227,10 @@ const CartPage: React.FC = () => {
               )}
 
               {/* Checkout Button */}
-              <Button className="w-full hover-glow animate-scale-in" size="lg">
-                Proceder al pago
+              <Button className="w-full hover-glow animate-scale-in" size="lg" asChild>
+                <Link to="/checkout">
+                  Proceder al pago
+                </Link>
               </Button>
 
               {/* Continue Shopping */}

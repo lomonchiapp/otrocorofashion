@@ -145,8 +145,8 @@ const CartModal: React.FC<CartModalProps> = ({ isOpen, onClose }) => {
                 </Link>
               </Button>
               <Button onClick={onClose} asChild>
-                <Link to="/cart">
-                  Finalizar
+                <Link to="/checkout">
+                  Finalizar Compra
                 </Link>
               </Button>
             </div>

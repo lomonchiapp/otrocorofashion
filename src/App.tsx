@@ -9,6 +9,8 @@ import HomePage from './pages/HomePage';
 import ProductsPage from './pages/ProductsPage';
 import ProductDetailPage from './pages/ProductDetailPage';
 import CartPage from './pages/CartPage';
+import CheckoutPage from './pages/CheckoutPage';
+import UserProfilePage from './pages/UserProfilePage';
 import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
 import AdminDashboard from './pages/admin/AdminDashboard';
@@ -37,6 +39,7 @@ function App() {
             <Route path="category/:categorySlug" element={<ProductsPage />} />
             <Route path="search" element={<ProductsPage />} />
             <Route path="cart" element={<CartPage />} />
+            <Route path="checkout" element={<CheckoutPage />} />
             <Route path="wishlist" element={<WishlistPage />} />
             <Route path="client/*" element={<ClientLayout />}>
               <Route index element={<ClientDashboard />} />
@@ -48,7 +51,8 @@ function App() {
               <Route path="loyalty" element={<div className="container mx-auto px-4 py-8"><h1 className="text-2xl font-bold">Programa de Fidelidad</h1><p className="text-muted-foreground">Próximamente...</p></div>} />
               <Route path="settings" element={<div className="container mx-auto px-4 py-8"><h1 className="text-2xl font-bold">Configuración</h1><p className="text-muted-foreground">Próximamente...</p></div>} />
             </Route>
-            <Route path="profile" element={<div className="container mx-auto px-4 py-8"><h1 className="text-2xl font-bold">Mi Perfil</h1><p className="text-muted-foreground">Próximamente...</p></div>} />
+            <Route path="profile" element={<UserProfilePage />} />
+            <Route path="orders" element={<UserProfilePage />} />
             <Route path="sale" element={<div className="container mx-auto px-4 py-8"><h1 className="text-2xl font-bold">Ofertas</h1><p className="text-muted-foreground">Próximamente...</p></div>} />
             <Route path="about" element={<div className="container mx-auto px-4 py-8"><h1 className="text-2xl font-bold">Sobre Nosotros</h1><p className="text-muted-foreground">Próximamente...</p></div>} />
             <Route path="contact" element={<div className="container mx-auto px-4 py-8"><h1 className="text-2xl font-bold">Contacto</h1><p className="text-muted-foreground">Próximamente...</p></div>} />
